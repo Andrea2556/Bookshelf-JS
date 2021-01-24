@@ -1,0 +1,17 @@
+body {
+  align-items: center;
+  background-color: #ecf6ff;
+}
+
+input {
+  padding: 10px 30px;
+}
+
+#searchForm {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+label {
+  position: relative;
+}
