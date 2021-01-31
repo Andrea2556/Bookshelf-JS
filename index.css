@@ -5,6 +5,8 @@ body {
 
 input {
   padding: 10px 30px;
+  margin: 20px;
+  width: 13%;
 }
 
 #searchForm {
@@ -12,6 +14,49 @@ input {
   padding: 0;
   margin: 0;
 }
-label {
-  position: relative;
+
+#container {
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+
+.book {
+  background-color: white;
+  width: 30%;
+  height: 400px;
+  flex-direction: row;
+  margin-bottom: 30px;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.book__image {
+  width: 200px;
+  height: 60%;
+}
+.book-information {
+  text-align: center;
+  text-indent: 2px;
+  padding-bottom: 30px;
+}
+
+.book-information__author {
+  text-align: center;
+}
+
+#searchIcon {
+  position: absolute;
+  top: 2em;
+  left: 25px;
+  cursor: pointer;
+}
+#recommendation {
+  letter-spacing: 2px;
+  margin-right: 20px;
+  font-size: large;
+  padding: 10px 20px;
 }
