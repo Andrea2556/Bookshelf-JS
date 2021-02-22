@@ -1,6 +1,7 @@
 body {
   align-items: center;
   background-color: #ecf6ff;
+  font-family: 'Roboto', sans-serif;
 }
 
 input {
@@ -23,6 +24,7 @@ input {
   padding: 10px;
   justify-content: space-evenly;
   padding-bottom: 30px;
+  padding-top: 50px;
 }
 
 /* recommendation */
@@ -30,15 +32,33 @@ input {
   display: flex;
   background-color: white;
   padding: 20px;
+  padding-bottom: 20px;
 }
 .recommendation__image{
   width: 200px;
   height: 250px;
   padding-right: 20px;
+  padding: 10px;
 }
 .recommendation-info__author{
-  
+  color: red;
 }
+.book-information__author{
+  font-weight: bold;
+  text-overflow: ellipsis;
+}
+.recommendation-info__title{
+   font-weight: bold;
+   font-size: 25px;
+}
+.recommendation__label{
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-bottom: 30px;
+  }
+  .recommendation-info{
+    margin: 15px;
+  }
 
 .book {
   background-color: white;
@@ -54,16 +74,24 @@ input {
 .book__image {
   width: 200px;
   height: 60%;
+  margin: 25px;
 }
-.book-information {
-  text-align: center;
-  text-indent: 2px;
-  padding-bottom: 30px;
+.book-information__author {
+  width: 200px;
+  padding: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 120px;
+}
+.book-information__title {
+  width: 100 px;
+  padding: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.book-information__author {
-  text-align: center;
-}
 
 #searchIcon {
   position: absolute;
@@ -71,9 +99,7 @@ input {
   left: 25px;
   cursor: pointer;
 }
-#recommendation {
-  letter-spacing: 2px;
-  margin-right: 20px;
-  font-size: large;
-  padding: 10px 20px;
-}
+ .starChecked{
+  color: orange;
+ }
+

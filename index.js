@@ -36,9 +36,15 @@ const getFavoritesBookTemplate = (data) => {
       <img class ="recommendation__image" src=${imageLinks.thumbnail}/>
       <div class ="recommendation-info">
         <div class = "recommendation-info__title" >${title}</div>
-        <div class = "recommendation-info__author" >${authors}</div>
-        <div class = "recommendation-info__rating" >${averageRating}</div>
-
+        <div class = "recommendation-info__author" >${"by" +" "+ authors}</div>
+        <div class = "recommendation-info__rating" >${"Rating" + ":"+ " "+ averageRating}</div>
+        <div class="starChecked">
+        <span class="fa fa-star checked"</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star-half-o" aria-hidden="true"></span>
+        </div>
         <div class = "recommendation-info__description" >${trimString(description)}</div>
         <div class = "recommendation-info__category" >${categories}</div>
       </div>
@@ -80,18 +86,27 @@ const getHTMLBookFromTemplate = (data) => {
     canonicalVolumeLink = ""
   } = data.volumeInfo;
 
+  const checkTheElement = (elementValue, divClassName, elementPrefix) => {
+    if(Array.isArray(elementValue)){
+      return `<div class = ${divClassName}>${(elementPrefix || "") + " " + (elementValue || "".join(","))}</div>`
+    } if(typeof elementValue ==='number'){
+      return `<div class = ${divClassName}>${(elementValue|| "".join(",")) + " " + (elementPrefix|| "")}</div>`
+    }
+    else{
+      return "";
+    }
+  }
+
   return `
     <div class="book" onclick="window.open('${previewLink || canonicalVolumeLink}', '_blank')">
       <img class="book__image" src=${imageLinks.thumbnail}/>
-
       <div class ="book-information">
-        <div class = "book-information__author" >${authors}</div>
-        <div class = "book-information__title" >${title}</div>
-        <div class = "book-information__page" >${pageCount}</div>
-        <div class = "book-information__category" >${categories}</div>
+    <div class = "book-information__title" >${title}</div>
+       ${checkTheElement(authors, 'book-information__author',"by")}
+       ${checkTheElement(pageCount, 'book-information__page', "pages")}
+       ${checkTheElement(categories, 'book-information__category',"Category:")}
       </div>
-    </div>
-  `;
+    </div>`;
 };
 
 const displayFoundBooks = (data) => {
